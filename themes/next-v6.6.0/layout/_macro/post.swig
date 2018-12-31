@@ -360,9 +360,9 @@
     {% endif %}
 
     {% if page.reward === undefined and theme.reward.enable %}
-      {% set reward_able = true %} 
+      {% set reward_able = true %}
     {% else %}
-      {% set reward_able = page.reward %} 
+      {% set reward_able = page.reward %}
     {% endif %}
     {% if reward_able and (theme.reward.alipay or theme.reward.wechatpay or theme.reward.bitcoin) and not is_index %}
       <div>
@@ -380,7 +380,7 @@
       {% if post.tags and post.tags.length and not is_index %}
         <div class="post-tags">
           {% for tag in post.tags %}
-            <a href="{{ url_for(tag.path) }}" rel="tag"># {{ tag.name }}</a>
+            <a href="{{ url_for(tag.path) }}" rel="tag"><i class="fa fa-tag"></i> {{ tag.name }}</a>
           {% endfor %}
         </div>
       {% endif %}
