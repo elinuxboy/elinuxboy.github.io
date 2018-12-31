@@ -821,10 +821,11 @@ theme_config:
     projectId: #required
     bluebird: false #enable this if you want to include bluebird 3.5.1(core version) Promise polyfill
 
+  # 卜蒜子访问量显示设置
   # Show Views/Visitors of the website/page with busuanzi.
   # Get more information on http://ibruce.info/2015/04/04/busuanzi
   busuanzi_count:
-    enable: false
+    enable: true
     total_visitors: true
     total_visitors_icon: user
     total_views: true
