@@ -192,8 +192,8 @@ theme_config:
       animated: true #动画
       # Change the color of icon, using Hex Code.
       color: "#ff0000" #颜色
-  # copyright 和 powered 以及 theme 信息显示设置
-  # If not defined, will be used `author` from Hexo main config.
+    # copyright 和 powered 以及 theme 信息显示设置
+    # If not defined, will be used `author` from Hexo main config.
     copyright: elinuxboy 版权所有
     # -------------------------------------------------------------
     powered:
@@ -460,10 +460,12 @@ theme_config:
     alipay: /images/alipay.jpg
     #bitcoin: /images/bitcoin.png
 
+  # 相关文章功能，需要安装插件
+  # cnpm install hexo-related-popular-posts --save
   # Related popular posts
   # Dependencies: https://github.com/tea3/hexo-related-popular-posts
   related_posts:
-    enable: false
+    enable: true
     title: # custom header, leave empty to use the default one
     display_in_home: false
     params:
