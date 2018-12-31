@@ -265,11 +265,11 @@ theme_config:
   # Scheme Settings
   # ---------------------------------------------------------------
 
-  # Schemes
-  scheme: Muse
-  #scheme: Mist
-  #scheme: Pisces
-  #scheme: Gemini
+  # Schemes 主题风格设置
+  #scheme: Muse # 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白
+  scheme: Mist # Muse 的紧凑版本，整洁有序的单栏外观
+  #scheme: Pisces # 双栏 Scheme，小家碧玉似的清新
+  #scheme: Gemini # 类似 Pisces
 
 
   # ---------------------------------------------------------------
