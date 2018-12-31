@@ -426,10 +426,10 @@ theme_config:
     # Leave it empty for the default 1
     border_radius:
     # Add copy button on codeblock
-    copy_button:
-      enable: false
+    copy_button: # 代码块一键复制设置
+      enable: true
       # Show text copy result
-      show_result: false
+      show_result: true
 
   # Wechat Subscriber
   #wechat_subscriber:
