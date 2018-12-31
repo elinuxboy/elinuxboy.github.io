@@ -82,7 +82,18 @@ pagination_dir: page
 # theme: landscape
 theme: next-v6.6.0 # 启用 Next 主题
 
-# Deployment
+# Deployment 远程部署设置
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  # github
+- type: git
+  repo: git@github.com:elinuxboy/elinuxboy.github.io.git,
+  branch: master # 部署到主分支
+  # coding
+- type: git
+  repo: git@git.dev.tencent.com:elinuxboy/elinuxboy.coding.me.git
+  branch: master # 部署到主分支
+  # 码云
+- type: git
+  repo: git@gitee.com:elinuxboy/elinuxboy.git
+  branch: master # 部署到主分支
