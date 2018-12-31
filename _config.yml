@@ -168,20 +168,20 @@ theme_config:
   # Set rss to specific value if you have burned your feed already.
   rss:
 
+  # 页脚部分建站年份，年份和版权之间的图标设置
   footer:
     # Specify the date when the site was setup.
     # If not defined, current year will be used.
-    #since: 2015
-
+    since: 2018 #建站年份
     # Icon between year and copyright info.
     icon:
       # Icon name in fontawesome, see: https://fontawesome.com/v4.7.0/icons
       # `heart` is recommended with animation in red (#ff0000).
-      name: user
+      name: heart #图标名称
       # If you want to animate the icon, set it to true.
-      animated: false
+      animated: true #动画
       # Change the color of icon, using Hex Code.
-      color: "#808080"
+      color: "#ff0000" #颜色
 
     # If not defined, will be used `author` from Hexo main config.
     copyright:
