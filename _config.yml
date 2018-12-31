@@ -389,11 +389,12 @@ theme_config:
   # Automatically excerpt description in homepage as preamble text.
   excerpt_description: true
 
+  # 文章自动截断设置
   # Automatically Excerpt. Not recommend.
   # Please use <!-- more --> in the post to control excerpt accurately.
   auto_excerpt:
-    enable: false
-    length: 150
+    enable: true
+    length: 150 #截断字数
 
   # Read more button
   # If true, the read more button would be displayed in excerpt section
