@@ -207,13 +207,14 @@ theme_config:
     # Any custom text can be defined here.
     #custom_text: Hosted by <a target="_blank" rel="external nofollow" href="https://pages.coding.me"><b>Coding Pages</b></a>
 
+  # 版权许可协议设置
   # Creative Commons 4.0 International License.
   # https://creativecommons.org/share-your-work/licensing-types-examples
   # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
   creative_commons:
-    license: by-nc-sa
-    sidebar: false
-    post: false
+    license: by-nc-sa #协议
+    sidebar: true #侧边栏显示
+    post: true #文章中显示
 
 
   # ---------------------------------------------------------------
