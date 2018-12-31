@@ -341,6 +341,7 @@ theme_config:
     # If true, all words will placed on next lines if header width longer then sidebar width.
     wrap: false
 
+  # 侧边栏设置
   sidebar:
     # Sidebar Position, available value: left | right (only for Pisces | Gemini).
     position: left
@@ -350,7 +351,7 @@ theme_config:
     # If commented, will be default for:
     # Muse | Mist: 320
     # Pisces | Gemini: 240
-    #width: 300
+    width: 300 #侧边栏宽度
 
     # Sidebar Display, available value (only for Muse | Mist):
     #  - post    expand on posts automatically. Default.
@@ -369,10 +370,10 @@ theme_config:
     b2t: false
 
     # Scroll percent label in b2t button.
-    scrollpercent: false
+    scrollpercent: true #滚动百分比
 
     # Enable sidebar on narrow view (only for Muse | Mist).
-    onmobile: false
+    onmobile: true
 
 
   # ---------------------------------------------------------------
