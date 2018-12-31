@@ -98,6 +98,16 @@ deploy:
   repo: git@gitee.com:elinuxboy/elinuxboy.git
   branch: master # 部署到主分支
 
+# 字数统计（站点配置部分），需要安装插件
+# cnpm install hexo-symbols-count-time --save
+# Post wordcount display settings
+# Dependencies: https://github.com/theme-next/hexo-symbols-count-time
+symbols_count_time: #这部分必须放在站点配置文件里
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+
 ###########################################################################
 # 主题配置部分，对应主题配置文件 themes/next-xxx/_config.yml
 ###########################################################################
@@ -412,12 +422,14 @@ theme_config:
       another_day: true
     categories: true
 
+  # 字数统计（主题配置部分），需要安装插件，
+  # cnpm install hexo-symbols-count-time --save
   # Post wordcount display settings
   # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
   symbols_count_time:
     separated_meta: true
     item_text_post: true
-    item_text_total: false
+    item_text_total: true
     awl: 4
     wpm: 275
 
