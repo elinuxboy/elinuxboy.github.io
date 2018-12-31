@@ -2,14 +2,20 @@
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
-# Site
-title: Hexo
-subtitle:
-description:
-keywords:
-author: John Doe
-language:
-timezone:
+# Site 站点
+# 网站标题
+title: elinuxboy 的个人博客
+# 网站副标题
+subtitle: 为者常成，行者常至!<br> Just Do It！
+# 网站描述, 主要用于 SEO，告诉搜索引擎一个关于您站点的简单描述，通常建议在其中包含您网站的关键词。
+description: elinuxboy 的个人博客
+keywords: "elinuxboy, 个人博客"
+# 您的名字, author 参数用于主题显示文章的作者。
+author: elinuxoby
+# 网站使用的语言
+language: zh-CN
+# 网站时区。Hexo 默认使用您电脑的时区。时区列表。比如说：America/New_York, Japan, 和 UTC 。
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
