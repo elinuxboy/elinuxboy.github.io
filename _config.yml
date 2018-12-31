@@ -240,7 +240,7 @@ theme_config:
   # ---------------------------------------------------------------
   # Menu Settings
   # ---------------------------------------------------------------
-
+  # 菜单栏设置
   # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash from link value (/archives -> archives).
   # Usage: `Key: /link/ || icon`
   # Key is the name of menu item. If translate for this menu will find in languages - this translate will be loaded; if not - Key name will be used. Key is case-senstive.
@@ -248,9 +248,9 @@ theme_config:
   # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
   menu:
     home: / || home
-    #about: /about/ || user
-    #tags: /tags/ || tags
-    #categories: /categories/ || th
+    about: /about/ || user
+    tags: /tags/ || tags
+    categories: /categories/ || th
     archives: /archives/ || archive
     #schedule: /schedule/ || calendar
     #sitemap: /sitemap.xml || sitemap
@@ -259,7 +259,7 @@ theme_config:
   # Enable/Disable menu icons / item badges.
   menu_settings:
     icons: true
-    badges: false
+    badges: true
 
   # ---------------------------------------------------------------
   # Scheme Settings
