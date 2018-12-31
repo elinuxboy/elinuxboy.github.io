@@ -80,7 +80,7 @@
         </span>
       </div>
     {% endif %}
-	
+
     {% if theme.baidushare and theme.baidushare.type === "slide" %}
       <div>
         {% include '_partials/share/baidushare.swig' %}
@@ -119,5 +119,9 @@
   {% include '_third-party/bookmark.swig' %}
   {% include '_third-party/copy-code.swig' %}
   {% include '_third-party/pdf.swig' %}
+
+  <!-- 点击出现桃心效果 -->
+  <script type="text/javascript" src="/js/src/clickedLove.js"></script>
+
 </body>
 </html>
