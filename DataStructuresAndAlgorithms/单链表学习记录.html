@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/safari-logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.6.0',
+    sidebar: {"position":"left","width":300,"display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="单链表学习记录数据结构算法数据结构与算法">
+<meta name="keywords" content="单链表,学习记录,数据结构,算法,数据结构与算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单链表学习记录">
+<meta property="og:url" content="https://elinuxboy.github.io/DataStructuresAndAlgorithms/单链表学习记录.html">
+<meta property="og:site_name" content="elinuxboy 的个人博客">
+<meta property="og:description" content="单链表学习记录数据结构算法数据结构与算法">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://pjx08etdn.bkt.clouddn.com/FpKkAQcvd7eWVX8YFdVl8a6TzDTc">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/007w63Stly1fy85c7vvblj306a02edfm.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/007w63Stly1fy85c7z1yaj30bq04edfw.jpg">
+<meta property="og:image" content="http://pjx08etdn.bkt.clouddn.com/FlGWCxTA9sunkeCIq2KnSsm27KAV">
+<meta property="og:image" content="http://pjx08etdn.bkt.clouddn.com/Fi62vrPeut_s0P-ApjfGGM3etpRS">
+<meta property="og:image" content="http://pjx08etdn.bkt.clouddn.com/Fkz6P11boPIWywtywWhZQCJljUmP">
+<meta property="og:image" content="http://pjx08etdn.bkt.clouddn.com/FlBSDRWmM6ONsaoanTnx9ot552tH">
+<meta property="og:image" content="http://pjx08etdn.bkt.clouddn.com/FmFGz4j9I8xSxqZD09vu5V1FqlJm">
+<meta property="og:image" content="http://pjx08etdn.bkt.clouddn.com/FmYkGhJcs9WZMLvSCBgzN0cu1W-6">
+<meta property="og:updated_time" content="2019-01-01T15:20:10.800Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="单链表学习记录">
+<meta name="twitter:description" content="单链表学习记录数据结构算法数据结构与算法">
+<meta name="twitter:image" content="http://pjx08etdn.bkt.clouddn.com/FpKkAQcvd7eWVX8YFdVl8a6TzDTc">
+
+
+
+
+
+
+  <link rel="canonical" href="https://elinuxboy.github.io/DataStructuresAndAlgorithms/单链表学习记录.html">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>单链表学习记录 | elinuxboy 的个人博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">elinuxboy 的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">为者常成，行者常至!<br> Just Do It！</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">17</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">7</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">7</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+    <a href="https://github.com/elinuxboy" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elinuxboy.github.io/DataStructuresAndAlgorithms/单链表学习记录.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="elinuxoby">
+      <meta itemprop="description" content="elinuxboy 的个人博客">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="elinuxboy 的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">单链表学习记录
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-24 10:36:46" itemprop="dateCreated datePublished" datetime="2018-12-24T10:36:46+08:00">2018-12-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-01 23:20:10" itemprop="dateModified" datetime="2019-01-01T23:20:10+08:00">2019-01-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/链表/" itemprop="url" rel="index"><span itemprop="name">链表</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">9.7k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">9 分钟</span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">单链表,学习记录,数据结构,算法,数据结构与算法</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="链接方式存储"><a href="#链接方式存储" class="headerlink" title="链接方式存储"></a>链接方式存储</h3><p>链接方式存储的线性表简称为链表（Linked List）。</p>
+<p>链表的具体存储表示为：</p>
+<ol>
+<li><p>用一组任意的存储单元来存放线性表的结点（这组存储单元既可以是连续的，也可以是不连续的）。</p>
+</li>
+<li><p>链表中结点的逻辑次序和物理次序不一定相同。为了能正确表示结点间的逻辑关系，在存储每个结点值的同时，还必须存储指示其后继结点的地址（或位置）信息（称为指针（pointer）或链(link)）。</p>
+</li>
+</ol>
+<p>链式存储是最常用的存储方式之一，它不仅可用来表示线性表，而且可用来表示各种非线性的数据结构。</p>
+<h3 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h3><blockquote>
+<p>单链表是一种<strong>链式存取</strong>的数据结构，用一组<strong>地址任意</strong>的存储单元存放线性表中的数据元素。</p>
+</blockquote>
+<p>链表中的数据是以<strong>结点</strong>来表示的，每个结点的构成为：</p>
+<blockquote>
+<p>元素(数据元素的映象，通常称为“<strong>数据域</strong>”) + 指针(指示后继元素存储位置，通常称为“<strong>指针域</strong>”)。</p>
+</blockquote>
+<p>元素就是存储数据的存储单元，指针就是连接每个结点的地址数据。</p>
+<p>如图1所示，数据域data–存放结点值的数据域；指针域next–存放结点的直接后继的地址（位置）的指针域（链域）。</p>
+<p>链表通过每个结点的链域将线性表的n个结点按其逻辑顺序链接在一起的，每个结点只有一个链域的链表称为单链表（Single Linked List）。</p>
+<p><img src="http://pjx08etdn.bkt.clouddn.com/FpKkAQcvd7eWVX8YFdVl8a6TzDTc" alt=""></p>
+<div align="center">图1 链表结点的结构</div>
+
+<h3 id="头指针pHead、头结点pHeadNode、首元结点p1Node和终端结点（尾结点）pTailNode"><a href="#头指针pHead、头结点pHeadNode、首元结点p1Node和终端结点（尾结点）pTailNode" class="headerlink" title="头指针pHead、头结点pHeadNode、首元结点p1Node和终端结点（尾结点）pTailNode"></a>头指针pHead、头结点pHeadNode、首元结点p1Node和终端结点（尾结点）pTailNode</h3><ul>
+<li>头结点pHeadNode：</li>
+</ul>
+<p>有时，在链表的第一个结点之前会额外增设一个结点，结点的数据域一般不存放数据（有些情况下也可以存放链表的长度等信息），此结点被称为头结点。</p>
+<p>若头结点的指针域为空（NULL），表明链表是<strong>空表</strong>(如图2 所示)。头结点对于链表来说，不是必须的，在处理某些问题时，给链表添加头结点会使问题变得简单。</p>
+<p><img src="https://ws1.sinaimg.cn/large/007w63Stly1fy85c7vvblj306a02edfm.jpg" alt="在这里插入图片描述"></p>
+<p><img src="https://ws1.sinaimg.cn/large/007w63Stly1fy85c7z1yaj30bq04edfw.jpg" alt="在这里插入图片描述"></p>
+<div align="center">图2 空链表</div>
+
+<ul>
+<li>头指针pHead：</li>
+</ul>
+<p>永远指向链表中第一个结点的位置（如果链表有头结点，头指针指向头结点；否则，头指针指向首元结点）。</p>
+<ul>
+<li>头结点和头指针的区别：</li>
+</ul>
+<p>头指针是一个指针，头指针指向链表的头结点或者首元结点；头结点是一个实际存在的结点，它包含有数据域和指针域。两者在程序中的直接体现就是：头指针只声明而没有分配存储空间，头结点进行了声明并分配了一个结点的实际物理内存。</p>
+<blockquote>
+<p>单链表中可以没有头结点，但是<strong>不能没有头指针</strong>！</p>
+<p>单链表中<strong>每个结点的存储地址是存放在其前趋结点next域中</strong>。</p>
+</blockquote>
+<p>开始结点无前趋，故应设头指针pHead指向开始结点。</p>
+<p>链表由头指针唯一确定，单链表可以用头指针的名字来命名。</p>
+<ul>
+<li>首元结点p1Node：</li>
+</ul>
+<p>链表中第一个元素所在的结点，如果存在头结点则它是头结点后边的第一个结点。如图 3 所示。</p>
+<p><img src="http://pjx08etdn.bkt.clouddn.com/FlGWCxTA9sunkeCIq2KnSsm27KAV" alt=""></p>
+<p><img src="http://pjx08etdn.bkt.clouddn.com/Fi62vrPeut_s0P-ApjfGGM3etpRS" alt=""></p>
+<div align="center">图3 非空链表</div>
+
+<ul>
+<li>终端结点（尾结点）pTailNode:</li>
+</ul>
+<p>终端结点（尾结点）无<strong>后继</strong>，故终端结点的指针域为空，即NULL。</p>
+<h2 id="单链表的定义"><a href="#单链表的定义" class="headerlink" title="单链表的定义"></a>单链表的定义</h2><p>C语言使用结构体来定义单链表：</p>
+<div><div class="fold_hider"><div class="close hider_title">点击显示/隐藏内容</div></div><div class="fold">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义结点数据域的类型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> DataType;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义结点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    DataType data;<span class="comment">//数据域</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">next</span>;</span><span class="comment">//指针域</span></span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Node和SinglyLinkedList是不同名字的同一个类型（命名的不同是为了概念上更明确）</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> <span class="title">SinglyLinkedList</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//显示定义SinglyLinkedList类型的指针变量*pHead表示它是单链表的头指针</span></span><br><span class="line">SinglyLinkedList *pHead;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+<h2 id="单链表的建立"><a href="#单链表的建立" class="headerlink" title="单链表的建立"></a>单链表的建立</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>带头结点的单链表的初始化就是创建一个头结点，给他分配存储空间。并将头结点的指针域指向NULL。</p>
+<div><div class="fold_hider"><div class="close hider_title">点击显示/隐藏内容</div></div><div class="fold">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 初始化单链表，创建一个带头结点的空链表</span></span><br><span class="line"><span class="comment">* @return 链表头指针</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">SinglyLinkedList *<span class="title">InitSinglyLinkedList</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 申请存储空间可使用malloc()函数实现，需设立一申请单元指针，这里是头指针pHead，</span></span><br><span class="line">    <span class="comment">// 但malloc()函数得到的指针并不是指向结构体的指针，因此，需使用强制类型转换，</span></span><br><span class="line">    <span class="comment">// 将其转换成结构体型指针。</span></span><br><span class="line">    pHead = (SinglyLinkedList *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(SinglyLinkedList));</span><br><span class="line">    <span class="comment">// 刚开始时，链表还没建立，是一空链表，pHead结点的next指针为NULL。</span></span><br><span class="line">    pHead-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> pHead;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+<p>单链表是用户不断申请存储单元和改变链接关系而得到的一种特殊数据结构，将链表的左边称为链头，右边称为<em>链尾</em>。</p>
+<p>带头结点的单链表的创建有头插法、尾插法两种方法。</p>
+<h4 id="头插法"><a href="#头插法" class="headerlink" title="头插法"></a>头插法</h4><p>头插法建单链表是将链表右端看成固定的，链表不断向左延伸而得到的。头插法最先得到的是尾结点。如图 4 所示：</p>
+<p><img src="http://pjx08etdn.bkt.clouddn.com/Fkz6P11boPIWywtywWhZQCJljUmP" alt=""></p>
+<p><img src="http://pjx08etdn.bkt.clouddn.com/FlBSDRWmM6ONsaoanTnx9ot552tH" alt=""></p>
+<div align="center">图4 头插法</div>
+
+<p>由于链表的长度是随机的，故用一个for循环来控制链表中结点个数。</p>
+<p>申请存储空间可使用malloc()函数实现，需设立一<em>申请单元指针</em>，但malloc()函数得到的指针并不是指向结构体的指针，需使用<em>强制类型转换</em>，将其转换成结构体型指针。</p>
+<p>刚开始时，链表还没建立，是一空链表，pHead指针为NULL。</p>
+<p>链表建立的过程是申请空间、得到数据、建立链接的循环处理过程。</p>
+<p>头插法实现代码如下：</p>
+<div><div class="fold_hider"><div class="close hider_title">点击显示/隐藏内容</div></div><div class="fold">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 头插法创建带头结点的单链表</span></span><br><span class="line"><span class="comment"> * 如：pHead--&gt;d--&gt;c--&gt;b--&gt;a--&gt;NULL [逆序]</span></span><br><span class="line"><span class="comment"> * @param  pHead     链表头指针</span></span><br><span class="line"><span class="comment"> * @param  pData    要插入数据的指针</span></span><br><span class="line"><span class="comment"> * @param  dataCount 要插入数据的数量</span></span><br><span class="line"><span class="comment"> * @return          插入后链表的头指针</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> SinglyLinkedList *</span><br><span class="line"> CreateListFrHead (SinglyLinkedList *pHead, DataType *pData, <span class="keyword">int</span> dataCount)</span><br><span class="line"> &#123;</span><br><span class="line">     <span class="comment">//创建一个搜索结点，用于遍历链表</span></span><br><span class="line">     SinglyLinkedList *pCurrent = pHead;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dataCount; i++)</span><br><span class="line">     &#123;</span><br><span class="line"> 	<span class="comment">// 创建新结点pInsertNode用于存放要插入的数据</span></span><br><span class="line"> 	SinglyLinkedList *pInsertNode = (SinglyLinkedList *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(SinglyLinkedList));</span><br><span class="line"> 	pInsertNode-&gt;data = pData[i];</span><br><span class="line"> </span><br><span class="line"> 	<span class="comment">// 将pInsertNode插在原结点之前,前驱结点之后</span></span><br><span class="line"> 	<span class="comment">// 因为每个结点的地址都是存放在其前驱结点的指针域next中</span></span><br><span class="line"> 	pInsertNode-&gt;next = pCurrent-&gt;next;        <span class="comment">//原结点之前</span></span><br><span class="line"> 	pCurrent-&gt;next = pInsertNode;        <span class="comment">//前驱节点结点之后</span></span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     <span class="keyword">return</span> pHead;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+<h4 id="尾插法"><a href="#尾插法" class="headerlink" title="尾插法"></a>尾插法</h4><p>若将链表的左端固定，链表不断向右延伸，这种建立链表的方法称为尾插法。如图 5 所示：</p>
+<p><img src="http://pjx08etdn.bkt.clouddn.com/FmFGz4j9I8xSxqZD09vu5V1FqlJm" alt=""></p>
+<p><img src="http://pjx08etdn.bkt.clouddn.com/FmYkGhJcs9WZMLvSCBgzN0cu1W-6" alt=""></p>
+<div align="center">图5 尾插法</div>
+
+<p>尾插法建立链表时，头指针固定不动，故必须设立一个<em>搜索指针</em>，向链表右边延伸，则整个算法中应设立三个链表指针，即头指针pHead、搜索指针pCurrent、申请单元指针pInsertNode。尾插法最先得到的是头结点。</p>
+<p>尾插法实现代码如下：</p>
+<div><div class="fold_hider"><div class="close hider_title">点击显示/隐藏内容</div></div><div class="fold">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 尾插法建立带头结点的单链表</span></span><br><span class="line"><span class="comment"> * 例如：pHead--&gt;a--&gt;b--&gt;c--&gt;d--&gt;NULL [顺序]</span></span><br><span class="line"><span class="comment"> * @param  pHead     链表头指针</span></span><br><span class="line"><span class="comment"> * @param  pData     要插入的数据指针</span></span><br><span class="line"><span class="comment"> * @param  dataCount 要插入的数据数量</span></span><br><span class="line"><span class="comment"> * @return           插入后的链表头指针</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">SinglyLinkedList * <span class="title">CreateListFrTail</span><span class="params">(SinglyLinkedList *pHead, DataType *pData,</span></span></span><br><span class="line"><span class="function"><span class="params">		<span class="keyword">int</span> dataCount)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//创建搜索指针pCurrent用于遍历链表</span></span><br><span class="line">	SinglyLinkedList *pCurrent = pHead;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//遍历链表</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dataCount; i++) &#123;</span><br><span class="line">		<span class="comment">//创建新结点pInsertNode用于保存要插入的数据</span></span><br><span class="line">		SinglyLinkedList *pInsertNode = (SinglyLinkedList *) <span class="built_in">malloc</span>(</span><br><span class="line">				<span class="keyword">sizeof</span>(SinglyLinkedList));</span><br><span class="line">		pInsertNode-&gt;data = pData[i];</span><br><span class="line"></span><br><span class="line">		<span class="comment">//将pInsertNode插入pCurrent之后</span></span><br><span class="line">		pCurrent-&gt;next = pInsertNode;</span><br><span class="line">		<span class="comment">//pCurrent始终指向尾结点</span></span><br><span class="line">		pCurrent = pInsertNode;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//插入完成后，尾结点的next域置为NULL</span></span><br><span class="line">	pCurrent-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> pHead;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+<h2 id="完整的测试代码如下"><a href="#完整的测试代码如下" class="headerlink" title="完整的测试代码如下"></a>完整的测试代码如下</h2><div><div class="fold_hider"><div class="close hider_title">点击显示/隐藏内容</div></div><div class="fold">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义结点数据域的类型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> DataType;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义结点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">​    DataType data; <span class="comment">//数据域</span></span><br><span class="line">​    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">next</span>;</span> <span class="comment">//指针域</span></span><br><span class="line">&#125; Node;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义SinglyLinkedList类型变量表示单链表</span></span><br><span class="line"><span class="comment">//注意：Node和SinglyLinkedList是不同名字的同一个类型（命名的不同是为了概念上更明确）</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> <span class="title">SinglyLinkedList</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//显示定义SinglyLinkedList类型的指针变量*pHead表示它是单链表的头指针</span></span><br><span class="line">SinglyLinkedList *pHead;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 初始化单链表，创建一个带头结点的空链表</span></span><br><span class="line"><span class="comment"> * @return 链表头指针</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function">SinglyLinkedList *<span class="title">InitSinglyLinkedList</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 判断链表是否为空</span></span><br><span class="line"><span class="comment"> * @param  pHead 链表头指针</span></span><br><span class="line"><span class="comment"> * @return       1为空，0不为空</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">(SinglyLinkedList *pHead)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 头插法创建带头结点的单链表</span></span><br><span class="line"><span class="comment"> * 如：pHead--&gt;d--&gt;c--&gt;b--&gt;a [逆序]</span></span><br><span class="line"><span class="comment"> * @param  pHead     链表头指针</span></span><br><span class="line"><span class="comment"> * @param  pData    要插入数据的指针</span></span><br><span class="line"><span class="comment"> * @param  dataCount 要插入数据的数量</span></span><br><span class="line"><span class="comment"> * @return          插入后链表的头指针</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function">SinglyLinkedList *<span class="title">CreateSinglyLinkedListFrHead</span><span class="params">(SinglyLinkedList *pHead, DataType *pData,</span></span></span><br><span class="line"><span class="function"><span class="params">    ​    <span class="keyword">int</span> dataCount)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 尾插法建立带头结点的单链表</span></span><br><span class="line"><span class="comment"> * 例如：pHead--&gt;a--&gt;b--&gt;c--&gt;d--&gt;NULL [顺序]</span></span><br><span class="line"><span class="comment"> * @param  pHead     链表头指针</span></span><br><span class="line"><span class="comment"> * @param  pData     要插入的数据指针</span></span><br><span class="line"><span class="comment"> * @param  dataCount 要插入的数据数量</span></span><br><span class="line"><span class="comment"> * @return           插入后的链表头指针</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function">SinglyLinkedList * <span class="title">CreateSinglyLinkedListFrTail</span><span class="params">(SinglyLinkedList *pHead, DataType *pData,</span></span></span><br><span class="line"><span class="function"><span class="params">    ​    <span class="keyword">int</span> dataCount)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 输出链表的长度</span></span><br><span class="line"><span class="comment"> * @param  pHead 链表头指针</span></span><br><span class="line"><span class="comment"> * @return       链表中结点个数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">SinglyLinkedListLength</span><span class="params">(SinglyLinkedList *pHead)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 输出链表中的数据</span></span><br><span class="line"><span class="comment"> * @param pHead 链表头指针</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">     <span class="function"><span class="keyword">void</span> <span class="title">DispSinglyLinkedList</span><span class="params">(SinglyLinkedList *pHead)</span></span>;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">​    <span class="comment">//带头结点的单链表初始化</span></span><br><span class="line">​    pHead = InitSinglyLinkedList();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//输出链表</span></span><br><span class="line">    DispSinglyLinkedList(pHead);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//创建如下单链表</span></span><br><span class="line">    DataType *pData = <span class="string">"abcdefg"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//头插法创建链表</span></span><br><span class="line">    pHead = CreateSinglyLinkedListFrHead(pHead, pData, <span class="built_in">strlen</span>(pData));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//尾插法创建链表</span></span><br><span class="line">    <span class="comment">//    pHead = CreateSinglyLinkedListFrTail(pHead, pData, strlen(pData));</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"链表长度为：%d\n"</span>, SinglyLinkedListLength(pHead));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//输出链表</span></span><br><span class="line">    DispSinglyLinkedList(pHead);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//释放存储空间</span></span><br><span class="line">    <span class="built_in">free</span>(pHead);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> EXIT_SUCCESS;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 初始化单链表，创建一个带头结点的空链表</span></span><br><span class="line"><span class="comment"> * @return 链表头指针</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function">SinglyLinkedList *<span class="title">InitSinglyLinkedList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 申请存储空间可使用malloc()函数实现，需设立一申请单元指针，这里是头指针pHead，</span></span><br><span class="line">    <span class="comment">// 但malloc()函数得到的指针并不是指向结构体的指针，因此，需使用强制类型转换，</span></span><br><span class="line">    <span class="comment">// 将其转换成结构体型指针。</span></span><br><span class="line">    pHead = (SinglyLinkedList *) <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(SinglyLinkedList));</span><br><span class="line">    <span class="comment">// 刚开始时，链表还没建立，是一空链表，pHead结点的next指针为NULL。</span></span><br><span class="line">    pHead-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> pHead;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 判断链表是否为空</span></span><br><span class="line"><span class="comment"> * @param  pHead 链表头指针</span></span><br><span class="line"><span class="comment"> * @return       1为空，0不为空</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">(SinglyLinkedList *pHead)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (pHead-&gt;next == <span class="literal">NULL</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 头插法创建带头结点的单链表</span></span><br><span class="line"><span class="comment"> * 如：pHead--&gt;d--&gt;c--&gt;b--&gt;a--&gt;NULL [逆序]</span></span><br><span class="line"><span class="comment"> * @param  pHead     链表头指针</span></span><br><span class="line"><span class="comment"> * @param  pData    要插入数据的指针</span></span><br><span class="line"><span class="comment"> * @param  dataCount 要插入数据的数量</span></span><br><span class="line"><span class="comment"> * @return          插入后链表的头指针</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function">SinglyLinkedList *<span class="title">CreateSinglyLinkedListFrHead</span><span class="params">(SinglyLinkedList *pHead, DataType *pData,</span></span></span><br><span class="line"><span class="function"><span class="params">    ​    <span class="keyword">int</span> dataCount)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建一个搜索结点，用于遍历链表</span></span><br><span class="line">    SinglyLinkedList *pCurrent = pHead;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dataCount; i++) &#123;</span><br><span class="line">    ​    <span class="comment">// 创建新结点pInsertNode用于存放要插入的数据</span></span><br><span class="line">    ​    SinglyLinkedList *pInsertNode = (SinglyLinkedList *) <span class="built_in">malloc</span>(</span><br><span class="line">    ​            <span class="keyword">sizeof</span>(SinglyLinkedList));</span><br><span class="line">    ​    pInsertNode-&gt;data = pData[i];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将pInsertNode插在原结点之前,前驱结点之后</span></span><br><span class="line">        <span class="comment">// 因为每个结点的地址都是存放在其前驱结点的指针域next中</span></span><br><span class="line">        pInsertNode-&gt;next = pCurrent-&gt;next;        <span class="comment">//原结点之前</span></span><br><span class="line">        pCurrent-&gt;next = pInsertNode;        <span class="comment">//前驱节点结点之后</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> pHead;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 尾插法建立带头结点的单链表</span></span><br><span class="line"><span class="comment"> * 例如：pHead--&gt;a--&gt;b--&gt;c--&gt;d--&gt;NULL [顺序]</span></span><br><span class="line"><span class="comment"> * @param  pHead     链表头指针</span></span><br><span class="line"><span class="comment"> * @param  pData     要插入的数据指针</span></span><br><span class="line"><span class="comment"> * @param  dataCount 要插入的数据数量</span></span><br><span class="line"><span class="comment"> * @return           插入后的链表头指针</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function">SinglyLinkedList * <span class="title">CreateSinglyLinkedListFrTail</span><span class="params">(SinglyLinkedList *pHead, DataType *pData,</span></span></span><br><span class="line"><span class="function"><span class="params">    ​    <span class="keyword">int</span> dataCount)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建搜索指针pCurrent用于遍历链表</span></span><br><span class="line">    SinglyLinkedList *pCurrent = pHead;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//遍历链表</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dataCount; i++) &#123;</span><br><span class="line">    ​    <span class="comment">//创建新结点pInsertNode用于保存要插入的数据</span></span><br><span class="line">    ​    SinglyLinkedList *pInsertNode = (SinglyLinkedList *) <span class="built_in">malloc</span>(</span><br><span class="line">    ​            <span class="keyword">sizeof</span>(SinglyLinkedList));</span><br><span class="line">    ​    pInsertNode-&gt;data = pData[i];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//将pInsertNode插入pCurrent之后</span></span><br><span class="line">        pCurrent-&gt;next = pInsertNode;</span><br><span class="line">        <span class="comment">//pCurrent始终指向尾结点</span></span><br><span class="line">        pCurrent = pInsertNode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//插入完成后，尾结点的next域置为NULL</span></span><br><span class="line">    pCurrent-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> pHead;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 输出链表中的数据</span></span><br><span class="line"><span class="comment"> * @param pHead 链表头指针</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">DispSinglyLinkedList</span><span class="params">(SinglyLinkedList *pHead)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (IsEmpty(pHead))</span><br><span class="line">    &#123;</span><br><span class="line">    ​    <span class="built_in">printf</span>(<span class="string">"链表为空！\n"</span>);</span><br><span class="line">    ​    <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建搜索结点pCurrent用于遍历链表</span></span><br><span class="line">    <span class="comment">//因为头结点中不存放数据，所以需要跳过头结点</span></span><br><span class="line">    SinglyLinkedList *pCurrent = pHead-&gt;next;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//遍历链表</span></span><br><span class="line">    <span class="keyword">while</span> (pCurrent != <span class="literal">NULL</span>) &#123;</span><br><span class="line">    ​    <span class="built_in">printf</span>(<span class="string">"%c "</span>, pCurrent-&gt;data);</span><br><span class="line">    ​    pCurrent = pCurrent-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 输出链表的长度</span></span><br><span class="line"><span class="comment"> * @param  pHead 链表头指针</span></span><br><span class="line"><span class="comment"> * @return       链表中结点个数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">SinglyLinkedListLength</span><span class="params">(SinglyLinkedList *pHead)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ListLength = <span class="number">0</span>;</span><br><span class="line">    SinglyLinkedList *pCurrent = pHead;</span><br><span class="line">    <span class="keyword">while</span> (pCurrent-&gt;next != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">    ​    ListLength++;</span><br><span class="line">    ​    pCurrent = pCurrent-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ListLength;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+<p>  未完待续。。。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://baike.baidu.com/item/%E5%8D%95%E9%93%BE%E8%A1%A8/3228368?fr=aladdin#ref_[1]_178637" target="_blank" rel="noopener">《百度百科——单链表》</a></li>
+<li><a href="https://www.cnblogs.com/leaver/p/6718421.html" target="_blank" rel="noopener">《数据结构：单链表基本操作》</a></li>
+<li><a href="http://data.biancheng.net/" target="_blank" rel="noopener">《数据结构与算法教程，数据结构C语言版教程！》</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/DataStructuresAndAlgorithms/数据结构与算法学习整理记录.html" rel="bookmark">数据结构与算法学习整理记录</a></div>
+      
+    </li>
+  
+  </ul>
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>文章不错哟，快快打赏吧！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="elinuxoby 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="elinuxoby 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>elinuxoby</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://elinuxboy.github.io/DataStructuresAndAlgorithms/单链表学习记录.html" title="单链表学习记录">https://elinuxboy.github.io/DataStructuresAndAlgorithms/单链表学习记录.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+          
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          
+            <a href="/tags/数据结构与算法/" rel="tag"><i class="fa fa-tag"></i> 数据结构与算法</a>
+          
+            <a href="/tags/学习记录/" rel="tag"><i class="fa fa-tag"></i> 学习记录</a>
+          
+            <a href="/tags/单链表/" rel="tag"><i class="fa fa-tag"></i> 单链表</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/DataStructuresAndAlgorithms/数据结构与算法学习整理记录.html" rel="next" title="数据结构与算法学习整理记录">
+                <i class="fa fa-chevron-left"></i> 数据结构与算法学习整理记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Linux/Linux-mint-xfce-19-踩坑记录.html" rel="prev" title="Linux-mint-xfce-19-踩坑记录">
+                Linux-mint-xfce-19-踩坑记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTkzMC8xODQ3Ng=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="elinuxoby">
+            
+              <p class="site-author-name" itemprop="name">elinuxoby</p>
+              <p class="site-description motion-element" itemprop="description">elinuxboy 的个人博客</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/elinuxboy" title="GitHub &rarr; https://github.com/elinuxboy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:elinuxboy001@gmail.com" title="E-Mail &rarr; mailto:elinuxboy001@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/p/1005056887217453" title="Weibo &rarr; https://weibo.com/p/1005056887217453" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/elinuxboy" title="https://www.cnblogs.com/elinuxboy" rel="noopener" target="_blank">博客园</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gitee.com/elinuxboy" title="https://gitee.com/elinuxboy" rel="noopener" target="_blank">Gitee</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链接方式存储"><span class="nav-number">1.1.</span> <span class="nav-text">链接方式存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单链表"><span class="nav-number">1.2.</span> <span class="nav-text">单链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头指针pHead、头结点pHeadNode、首元结点p1Node和终端结点（尾结点）pTailNode"><span class="nav-number">1.3.</span> <span class="nav-text">头指针pHead、头结点pHeadNode、首元结点p1Node和终端结点（尾结点）pTailNode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的定义"><span class="nav-number">2.</span> <span class="nav-text">单链表的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表的建立"><span class="nav-number">3.</span> <span class="nav-text">单链表的建立</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">3.1.</span> <span class="nav-text">初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#头插法"><span class="nav-number">3.1.1.</span> <span class="nav-text">头插法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#尾插法"><span class="nav-number">3.1.2.</span> <span class="nav-text">尾插法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完整的测试代码如下"><span class="nav-number">4.</span> <span class="nav-text">完整的测试代码如下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">elinuxboy 版权所有</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">65k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">59 分钟</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.6.0</div>
+
+
+
+
+
+<span class="post-meta-divider"> | </span>
+
+<span><i class="fa fa-plug"></i></span>
+<span id="showDays"></span>
+<script>
+  var seconds = 1000;
+  var minutes = seconds * 60;
+  var hours = minutes * 60;
+  var days = hours * 24;
+  var years = days * 365;
+  var birthDay = Date.UTC(2018,12,31,23,59,59); // 这里设置建站时间
+  setInterval(function() {
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = now - birthDay;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+      document.getElementById('showDays').innerHTML="本站已运行 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }, 1000);
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: 'DataStructuresAndAlgorithms/单链表学习记录.html'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+
+
+  <!-- 点击出现桃心效果 -->
+  <script type="text/javascript" src="/js/src/clickedLove.js"></script>
+
+  <!-- Aplayer -->
+  <link rel="stylesheet" href="/aplayer/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/aplayer/APlayer.min.js"></script>
+  <script type="text/javascript" src="/aplayer/music.js"></script>
+
+</body>
+</html>

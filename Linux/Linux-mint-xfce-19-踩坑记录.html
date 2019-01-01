@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/safari-logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.6.0',
+    sidebar: {"position":"left","width":300,"display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Linuxmintxfce踩坑记录">
+<meta name="keywords" content="Linux,mint,xfce,踩坑记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-mint-xfce-19-踩坑记录">
+<meta property="og:url" content="https://elinuxboy.github.io/Linux/Linux-mint-xfce-19-踩坑记录.html">
+<meta property="og:site_name" content="elinuxboy 的个人博客">
+<meta property="og:description" content="Linuxmintxfce踩坑记录">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.imgur.com/pbx7uUr.png">
+<meta property="og:image" content="https://i.imgur.com/95mjNzv.png">
+<meta property="og:image" content="https://i.imgur.com/VLa6WIz.png">
+<meta property="og:image" content="https://i.imgur.com/cXKXgYO.png">
+<meta property="og:image" content="https://i.imgur.com/b0wUxcb.png">
+<meta property="og:image" content="https://i.imgur.com/MTsrNL0.png">
+<meta property="og:image" content="https://i.imgur.com/qFhhwaa.png">
+<meta property="og:image" content="https://i.imgur.com/lI4Ah8H.png">
+<meta property="og:image" content="https://i.imgur.com/Tn6oTLN.png">
+<meta property="og:image" content="https://i.imgur.com/JJvEd79.png">
+<meta property="og:image" content="https://i.imgur.com/5xA5gLe.png">
+<meta property="og:image" content="https://i.imgur.com/Wxc4t2l.png">
+<meta property="og:image" content="https://i.imgur.com/dqvWYXi.png">
+<meta property="og:image" content="https://i.imgur.com/r9Dl3QP.png">
+<meta property="og:image" content="https://i.imgur.com/BMy7I0Q.png">
+<meta property="og:image" content="https://i.imgur.com/210EODj.png">
+<meta property="og:image" content="https://i.imgur.com/xeZXCGI.png">
+<meta property="og:image" content="https://i.imgur.com/axALn4P.png">
+<meta property="og:image" content="https://i.imgur.com/UWcLufZ.png">
+<meta property="og:image" content="https://i.imgur.com/y3Z4ygL.png">
+<meta property="og:image" content="https://i.imgur.com/yuW1YGf.png">
+<meta property="og:image" content="https://i.imgur.com/cY5A9tG.png">
+<meta property="og:image" content="https://i.imgur.com/7J3TrKs.png">
+<meta property="og:image" content="https://i.imgur.com/GZ8iAAW.png">
+<meta property="og:image" content="https://i.imgur.com/nIf3zjV.png">
+<meta property="og:updated_time" content="2019-01-01T15:19:34.409Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux-mint-xfce-19-踩坑记录">
+<meta name="twitter:description" content="Linuxmintxfce踩坑记录">
+<meta name="twitter:image" content="https://i.imgur.com/pbx7uUr.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://elinuxboy.github.io/Linux/Linux-mint-xfce-19-踩坑记录.html">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Linux-mint-xfce-19-踩坑记录 | elinuxboy 的个人博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">elinuxboy 的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">为者常成，行者常至!<br> Just Do It！</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">17</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">7</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">7</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+    <a href="https://github.com/elinuxboy" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elinuxboy.github.io/Linux/Linux-mint-xfce-19-踩坑记录.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="elinuxoby">
+      <meta itemprop="description" content="elinuxboy 的个人博客">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="elinuxboy 的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Linux-mint-xfce-19-踩坑记录
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-24 10:38:51" itemprop="dateCreated datePublished" datetime="2018-12-24T10:38:51+08:00">2018-12-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-01 23:19:34" itemprop="dateModified" datetime="2019-01-01T23:19:34+08:00">2019-01-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Linux/xfce/" itemprop="url" rel="index"><span itemprop="name">xfce</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">7.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">6 分钟</span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">Linux,mint,xfce,踩坑记录</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="创建系统快照"><a href="#创建系统快照" class="headerlink" title="创建系统快照"></a>创建系统快照</h2><p>创建系统快照是 Linux Mint 19 的重要建议，可以使用与更新管理器捆绑的 Timeshift 应用程序轻松完成创建与恢复。</p>
+<blockquote>
+<p>这个阶段很重要，万一出现令人遗憾的事件，比如安装破坏系统的应用程序，你始终可以恢复到系统副本。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/pbx7uUr.png" alt=""></p>
+<h2 id="启用国内软件源"><a href="#启用国内软件源" class="headerlink" title="启用国内软件源"></a>启用国内软件源</h2><p>将主要和基础两个镜像设置为国内的最快的镜像，这里用 ustc （科大）镜像：</p>
+<p><img src="https://i.imgur.com/95mjNzv.png" alt=""></p>
+<h2 id="设置-Redshift-保护眼睛健康"><a href="#设置-Redshift-保护眼睛健康" class="headerlink" title="设置 Redshift 保护眼睛健康"></a>设置 Redshift 保护眼睛健康</h2><p>Night Light 已迅速成为桌面操作系统和手持设备的一项必备功能。该功能有助于过滤蓝光，因而减轻视觉疲劳。你要做的就是启动 Redshift 应用程序（它默认安装），将其设置成自动启动。</p>
+<p><img src="https://i.imgur.com/VLa6WIz.png" alt=""></p>
+<h2 id="设置防火墙"><a href="#设置防火墙" class="headerlink" title="设置防火墙"></a>设置防火墙</h2><p>Linux Mint 19 预装 UFW （简单防火墙）。你只要在菜单中搜索 ufw 并激活它。</p>
+<p><img src="https://i.imgur.com/cXKXgYO.png" alt=""></p>
+<h2 id="卸载自带软件"><a href="#卸载自带软件" class="headerlink" title="卸载自带软件"></a>卸载自带软件</h2><p>linux mint 会自带一些国内不常用的软件，需要卸载。</p>
+<h3 id="卸载自带音乐播放器-rhythmbox"><a href="#卸载自带音乐播放器-rhythmbox" class="headerlink" title="卸载自带音乐播放器 rhythmbox"></a>卸载自带音乐播放器 rhythmbox</h3><p><code>$ sudo apt remove rhythmbox</code></p>
+<h3 id="卸载自带即时通讯工具-hexchat"><a href="#卸载自带即时通讯工具-hexchat" class="headerlink" title="卸载自带即时通讯工具 hexchat"></a>卸载自带即时通讯工具 hexchat</h3><p><code>$ sudo apt remove hexchat</code></p>
+<h3 id="卸载自带-libreoffice"><a href="#卸载自带-libreoffice" class="headerlink" title="卸载自带 libreoffice"></a>卸载自带 libreoffice</h3><p>只卸载文字（libreoffice-writer）与表格（libreoffice-calc）和幻灯片（libreoffice-impress）：</p>
+<p><code>$ sudo apt remove libreoffice-impress libreoffice-writer libreoffice-calc</code></p>
+<p><del>完全卸载，不要漏掉通配符“?”，否则无法清除/卸载全部 LibreOffice 软件包：</del></p>
+<p><del><code>$ sudo apt-get purge libreoffice?</code></del></p>
+<h3 id="卸载自带词典-xfce4-dict"><a href="#卸载自带词典-xfce4-dict" class="headerlink" title="卸载自带词典 xfce4-dict"></a>卸载自带词典 xfce4-dict</h3><p><code>$ sudo apt remove xfce4-dict</code></p>
+<h2 id="安装常用软件"><a href="#安装常用软件" class="headerlink" title="安装常用软件"></a>安装常用软件</h2><h3 id="安装-apt-fast"><a href="#安装-apt-fast" class="headerlink" title="安装 apt-fast"></a>安装 apt-fast</h3><p>apt-fast 是一款替代 apt-get 提升下载速度的软件，安装软件时，通过增加线程使下载软件速度加快。apt-fast 本身其实就是一个脚本，所以安装特别简单，都不需要编译的。</p>
+<p><code>$ git clone https://github.com/ilikenwf/apt-fast.git</code></p>
+<p><code>$ cd apt-fast</code></p>
+<p><code>$ sudo ./quick-install.sh</code></p>
+<p>也可以到<code>/etc/apt-fast.conf</code>自行修改，详情查看 apt-fast 的<code>README.md</code>文件。</p>
+<p><em>注：脚本<code>quick-install.sh</code>会自动安装 aria2。</em></p>
+<h3 id="解决汉化不完全的问题"><a href="#解决汉化不完全的问题" class="headerlink" title="解决汉化不完全的问题"></a>解决汉化不完全的问题</h3><p>全新安装的 linux mint 中文版即使完全安装了简体中文语言包也会有汉化不完全的问题。<br>参照网上的解决办法：</p>
+<p><img src="https://i.imgur.com/b0wUxcb.png" alt=""></p>
+<p><code>$ sudo apt-fast install language-pack-zh-hans language-pack-gnome-zh-hans libreoffice-l10n-zh-cn thunderbird-locale-zh-hans firefox-locale-zh-hans</code></p>
+<h3 id="安装中文输入法"><a href="#安装中文输入法" class="headerlink" title="安装中文输入法"></a>安装中文输入法</h3><h4 id="安装谷歌拼音输入法"><a href="#安装谷歌拼音输入法" class="headerlink" title="安装谷歌拼音输入法"></a>安装谷歌拼音输入法</h4><p>搜狗拼音好用是好用，就是问题太多，资源占用也比较大，所以使用谷歌拼音输入法。</p>
+<p>使用软件管理器安装以下组件：</p>
+<pre><code>基础组件：fcitx
+配置组件：fcitx-config-gtk
+图标组件：fcitx-ui-classic
+谷歌拼音：fcitx-googlepinyin
+</code></pre><p><code>$ sudo apt-fast install fcitx fcitx-config-gtk fcitx-ui-classic fcitx-googlepinyin</code></p>
+<p>安装完成后注销或者重启即可。</p>
+<p><em>提示：安装系统默认中文输入法后如果系统的字体显示会出现变化，下面会介绍解决办法。</em></p>
+<p><del>#### 安装搜狗拼音输入法</del></p>
+<p><del>到官网 <a href="https://pinyin.sogou.com/linux/?r=pinyin" target="_blank" rel="noopener">https://pinyin.sogou.com/linux/?r=pinyin</a> 下载，双击已下载的 deb 安装包 sogoupinyin_2.2.0.0108_amd64.deb，包管理器会解决依赖问题，然后自动安装。</del></p>
+<h3 id="安装中文字体"><a href="#安装中文字体" class="headerlink" title="安装中文字体"></a>安装中文字体</h3><ul>
+<li>新建文件夹：<code>/usr/share/fonts/myFontsFromWin10</code> </li>
+<li><p>复制 windows 10 下<code>c:\Windows\Fonts\</code>的字体</p>
+<p>微软雅黑：msyh.ttc </p>
+<p>微软雅黑：msyhbd.ttc</p>
+<p>楷体：simkai.ttf</p>
+<p>新宋体： simsun.ttc</p>
+<p>黑体：simhei.ttf</p>
+<p>仿宋：simfang.ttf</p>
+<p>宋体：simsunb.ttf</p>
+</li>
+</ul>
+<p>到<code>/usr/share/fonts/myFontsFromWin10</code>目录下。</p>
+<ul>
+<li>控制台进入<code>/usr/share/fonts/myFontsFromWin10</code>目录，执行</li>
+</ul>
+<p><code>$ sudo mkfontale</code></p>
+<p><code>$ sudo mkfontdir</code></p>
+<ul>
+<li>检查字体 </li>
+</ul>
+<p><code>$ fc-list | grep myFonts*</code></p>
+<p>以后就可以方便设置和使用这些字体了，顺便解决安装系统默认输入法后字体变化问题。</p>
+<h3 id="安装谷歌浏览器-chrome"><a href="#安装谷歌浏览器-chrome" class="headerlink" title="安装谷歌浏览器 chrome"></a>安装谷歌浏览器 chrome</h3><p>从官网 <a href="https://www.google.com/chrome/" target="_blank" rel="noopener">https://www.google.com/chrome/</a> 下载，双击已下载的deb安装包<code>google-chrome-stable_current_amd64.deb</code>自动安装。</p>
+<h4 id="添加谷歌访问助手扩展插件"><a href="#添加谷歌访问助手扩展插件" class="headerlink" title="添加谷歌访问助手扩展插件"></a>添加谷歌访问助手扩展插件</h4><p>打开 chrome，打开扩展程序，打开开发者模式，将已下载的文件“谷歌访问助手XXX.crx”拖到扩展程序页面，添加扩展程序即可。</p>
+<p><img src="https://i.imgur.com/MTsrNL0.png" alt=""></p>
+<p><img src="https://i.imgur.com/qFhhwaa.png" alt=""></p>
+<h3 id="安装多媒体插件"><a href="#安装多媒体插件" class="headerlink" title="安装多媒体插件"></a>安装多媒体插件</h3><p>Linux Mint 19 整合了多种媒体播放器，但仍缺少一些多媒体代码，因此播放某些媒体文件可能是个问题。运行下列命令来安装媒体插件，享受出色的电影观赏和音乐聆听体验。</p>
+<p><code>$ sudo apt-fast install mint-meta-codecs</code></p>
+<h3 id="安装网易云音乐播放器"><a href="#安装网易云音乐播放器" class="headerlink" title="安装网易云音乐播放器"></a>安装网易云音乐播放器</h3><p>官方版本（目前版本：netease-cloud-music_1.1.0_amd64_ubuntu.deb）的网易云音乐播放器有启动不了的 bug，网上修复也有很多问题，这里使用第三方的替代品 ieaseMusic。<br>项目地址：<a href="https://github.com/trazyn/ieaseMusic" target="_blank" rel="noopener">https://github.com/trazyn/ieaseMusic</a>。<br>双击已下载的 deb 安装包<code>ieaseMusic-1.3.2-linux-amd64.deb</code>开始自动安装。</p>
+<h3 id="安装在线视频播放"><a href="#安装在线视频播放" class="headerlink" title="安装在线视频播放"></a>安装在线视频播放</h3><p>在线视频方面，Funplayer 更名为 Moonplayer（月亮播放器），而且一直在活跃更新中。目前已经较为成熟完善了，而且最近作者可能得到了某些志愿者美工的帮助，换了一套较为大气、漂亮的界面。站长薄荷君觉得非常有必要重新介绍一下 Linux 用户喜爱的“月亮播放器”。<br>在 LinuxMint/Ubuntu 系列系统中，使用如下 PPA 安装月亮播放器：</p>
+<p><code>$ sudo add-apt-repository ppa:cos-lyk/moonsoft</code></p>
+<p><code>$ sudo apt-fast update</code></p>
+<p><code>$ sudo apt-fast install moonplayer</code></p>
+<h3 id="安装截图软件"><a href="#安装截图软件" class="headerlink" title="安装截图软件"></a>安装截图软件</h3><h4 id="shutter"><a href="#shutter" class="headerlink" title="shutter"></a>shutter</h4><p>可编辑的截图软件，使用软件管理器安装。</p>
+<p><img src="https://i.imgur.com/lI4Ah8H.png" alt=""></p>
+<h5 id="修复shutter不能使用编辑截图的问题"><a href="#修复shutter不能使用编辑截图的问题" class="headerlink" title="修复shutter不能使用编辑截图的问题"></a>修复shutter不能使用编辑截图的问题</h5><p>安装了截图工具 Shutter 后，编辑按钮变成灰色。要重新启用“编辑”选项，Shutter 需要<code>libgoo-canvas-perl</code>库。使用已下载的 deb 包安装：</p>
+<pre><code>libgoocanvas3_1.0.0-1_amd64.deb
+libgoocanvas-common_1.0.0-1_all.deb
+libgoo-canvas-perl_0.06-2ubuntu3_amd64.deb
+</code></pre><p><img src="https://i.imgur.com/Tn6oTLN.png" alt=""></p>
+<h4 id="hotshots"><a href="#hotshots" class="headerlink" title="hotshots"></a>hotshots</h4><p>跨平台的截图工具。能添加文字、箭头、圆形、矩形、直线、贝塞尔曲线、图片、高亮荧光效果。如果不能用 shutter 编辑截图的话，就用 hotshots 替代。</p>
+<h3 id="安装录屏软件"><a href="#安装录屏软件" class="headerlink" title="安装录屏软件"></a>安装录屏软件</h3><h4 id="vokscreen"><a href="#vokscreen" class="headerlink" title="vokscreen"></a>vokscreen</h4><p>使用软件管理器安装。</p>
+<p><img src="https://i.imgur.com/JJvEd79.png" alt=""></p>
+<h4 id="peek"><a href="#peek" class="headerlink" title="peek"></a>peek</h4><p>AUR 上人气很高的屏幕录像工具，小巧玲珑，可保存录像为 gif 动图和兼容于 html5 的 webm 视频。</p>
+<p>使用软件管理器安装。</p>
+<p><img src="https://i.imgur.com/5xA5gLe.png" alt=""></p>
+<h3 id="安装下载工具-uget"><a href="#安装下载工具-uget" class="headerlink" title="安装下载工具 uget"></a>安装下载工具 uget</h3><p><code>$ sudo apt-fast install uget</code></p>
+<h4 id="配置-Chrome-调用-uGet-下载"><a href="#配置-Chrome-调用-uGet-下载" class="headerlink" title="配置 Chrome 调用 uGet 下载"></a>配置 Chrome 调用 uGet 下载</h4><h5 id="安装-uget-integrator"><a href="#安装-uget-integrator" class="headerlink" title="安装 uget-integrator"></a>安装 uget-integrator</h5><p><code>$ sudo add-apt-repository ppa:uget-team/ppa</code></p>
+<p><code>$ sudo apt update</code></p>
+<p><code>$ sudo apt-fast install uget-integrator</code></p>
+<h5 id="chrome-安装-uget-扩展"><a href="#chrome-安装-uget-扩展" class="headerlink" title="chrome 安装 uget 扩展"></a>chrome 安装 uget 扩展</h5><p>在 chrome 应用商店搜索<code>uGet Integration</code>，添加即可。</p>
+<h3 id="安装翻译词典-goldendict"><a href="#安装翻译词典-goldendict" class="headerlink" title="安装翻译词典 goldendict"></a>安装翻译词典 goldendict</h3><p>强大的翻译软件，有离线词典（需要下载，然后添加）。使用软件管理器安装。</p>
+<p><img src="https://i.imgur.com/Wxc4t2l.png" alt=""></p>
+<h3 id="安装深度终端"><a href="#安装深度终端" class="headerlink" title="安装深度终端"></a>安装深度终端</h3><p>可分屏的终端模拟器。使用软件管理器安装。</p>
+<p><img src="https://i.imgur.com/dqvWYXi.png" alt=""></p>
+<h3 id="安装-gnome-系统监视器"><a href="#安装-gnome-系统监视器" class="headerlink" title="安装 gnome 系统监视器"></a>安装 gnome 系统监视器</h3><p>较全面的任务管理器。使用软件管理器安装。</p>
+<p><img src="https://i.imgur.com/r9Dl3QP.png" alt=""></p>
+<p>###安装硬件信息查看工具</p>
+<p>使用软件管理器安装。</p>
+<p><img src="https://i.imgur.com/BMy7I0Q.png" alt=""></p>
+<p>###安装文件比较工具</p>
+<p>使用软件管理器安装。</p>
+<p><img src="https://i.imgur.com/210EODj.png" alt=""></p>
+<h3 id="安装即时通讯工具"><a href="#安装即时通讯工具" class="headerlink" title="安装即时通讯工具"></a>安装即时通讯工具</h3><p>腾讯官方没有 linux 版本的 QQ 和微信客户端。只能使用第三方打包的软件。</p>
+<p>QQ&amp;TIM 项目地址：<a href="https://github.com/askme765cs/Wine-QQ-TIM" target="_blank" rel="noopener">https://github.com/askme765cs/Wine-QQ-TIM</a></p>
+<p>微信项目地址：<a href="https://github.com/geeeeeeeeek/electronic-wechat" target="_blank" rel="noopener">https://github.com/geeeeeeeeek/electronic-wechat</a></p>
+<p>或者另外一个微信项目：<a href="https://github.com/trazyn/weweChat" target="_blank" rel="noopener">https://github.com/trazyn/weweChat</a></p>
+<h4 id="安装-QQ"><a href="#安装-QQ" class="headerlink" title="安装 QQ"></a>安装 QQ</h4><p>使用已经下载的软件包：Wine-QQ.AppImage</p>
+<p>创建快捷方式：<code>/home/elinuxboy/.local/share/applications/wine-qq.desktop</code></p>
+<p>内容如下（具体位置需要修改，其中图标需要另行下载）：</p>
+<div><div class="fold_hider"><div class="close hider_title">点击显示/隐藏内容</div></div><div class="fold">
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line"><span class="meta">#</span><span class="bash"> 快捷方式的名称</span></span><br><span class="line">Name=QQ轻聊版</span><br><span class="line"><span class="meta">#</span><span class="bash"> 注释</span></span><br><span class="line">Comment=Linux下QQ的替代品wine-qq.</span><br><span class="line"><span class="meta">#</span><span class="bash"> AppImage qq所在的文件路径</span></span><br><span class="line">Exec=/mnt/backup/软件/linux/software/qq&amp;weixin/Wine-QQ.AppImage %U</span><br><span class="line">Terminal=false</span><br><span class="line"><span class="meta">#</span><span class="bash"> 图标</span></span><br><span class="line">Icon=/mnt/backup/软件/linux/software/qq&amp;weixin/qq.png   </span><br><span class="line">Type=Application</span><br><span class="line">Categories=Network</span><br><span class="line">StartupNotify=true</span><br><span class="line">TryExec=/mnt/backup/软件/linux/software/qq&amp;weixin/Wine-QQ.AppImage</span><br><span class="line">Name[zh_CN]=QQ轻聊版</span><br></pre></td></tr></table></figure>
+
+</div></div>
+<h4 id="安装-TIM"><a href="#安装-TIM" class="headerlink" title="安装 TIM"></a>安装 TIM</h4><p>使用软件包 Wine-TIM.AppImage,<br>快捷方式类同 qq 的快捷方式创建</p>
+<h4 id="安装微信"><a href="#安装微信" class="headerlink" title="安装微信"></a>安装微信</h4><p><img src="https://i.imgur.com/xeZXCGI.png" alt=""></p>
+<p>下载后解压缩 electronic-wechat-linux-x64.tar.gz。<br>创建快捷方式与 QQ 类似。</p>
+<h3 id="安装远程桌面管理软件"><a href="#安装远程桌面管理软件" class="headerlink" title="安装远程桌面管理软件"></a>安装远程桌面管理软件</h3><p>去官网 <a href="https://www.teamviewer.com/cn/" target="_blank" rel="noopener">https://www.teamviewer.com/cn/</a> 下载deb安装包安装。</p>
+<h3 id="安装超酷的-cat-替代命令-bat"><a href="#安装超酷的-cat-替代命令-bat" class="headerlink" title="安装超酷的 cat 替代命令 bat"></a>安装超酷的 cat 替代命令 bat</h3><p>项目地址：<a href="https://github.com/sharkdp/bat" target="_blank" rel="noopener">https://github.com/sharkdp/bat</a></p>
+<p>使用已下载的 deb 包<code>bat_0.8.0_amd64.deb</code>安装。</p>
+<h3 id="安装编辑软件Sublime"><a href="#安装编辑软件Sublime" class="headerlink" title="安装编辑软件Sublime"></a>安装编辑软件Sublime</h3><p>非常轻量、非常好用的代码编辑软件，使用软件管理器安装。</p>
+<h4 id="中文输入修复"><a href="#中文输入修复" class="headerlink" title="中文输入修复"></a>中文输入修复</h4><pre><code>## Sublime Text 3 输入法(Fcitx)修复[Ubuntu(Debian)]
++ 修复 Sublime Text 3&apos;s 在 Ubuntu(Debian) 系统下的无法输入中文(CJK 字符)的问题
++ 修复中文对齐问题
+</code></pre><p><code>$ git clone https://github.com/lyfeyaj/sublime-text-imfix.git</code></p>
+<p><code>$ cd sublime-text-imfix</code></p>
+<p><code>$ sudo ./sublime-imfix</code></p>
+<h3 id="安装-git-图形界面"><a href="#安装-git-图形界面" class="headerlink" title="安装 git 图形界面"></a>安装 git 图形界面</h3><h4 id="GitKraken"><a href="#GitKraken" class="headerlink" title="GitKraken"></a>GitKraken</h4><p>AUR 里人气很高的一个 Git 客户端。使用软件管理器安装。</p>
+<p><img src="https://i.imgur.com/axALn4P.png" alt=""></p>
+<h4 id="smartgit"><a href="#smartgit" class="headerlink" title="smartgit"></a>smartgit</h4><p>使用软件管理器安装。</p>
+<p><img src="https://i.imgur.com/UWcLufZ.png" alt=""></p>
+<h5 id="SmartGit-过期破解"><a href="#SmartGit-过期破解" class="headerlink" title="SmartGit 过期破解"></a>SmartGit 过期破解</h5><p>找到并删除文件：  ~/.smartgit/</p>
+<h3 id="安装虚拟机-vmware-workstations"><a href="#安装虚拟机-vmware-workstations" class="headerlink" title="安装虚拟机 vmware workstations"></a>安装虚拟机 vmware workstations</h3><p>到官网下载。使用已下载的包<code>VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle</code>。</p>
+<p>在终端执行命令安装：</p>
+<p><code>$ sudo ./VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle</code></p>
+<h3 id="安装办公软件-wps"><a href="#安装办公软件-wps" class="headerlink" title="安装办公软件 wps"></a>安装办公软件 wps</h3><p>著名的国产 Office 套件，需要上wps官网下载。</p>
+<p>使用已下载的 deb 包<code>wps-office_10.1.0.6757_amd64.deb</code>安装</p>
+<h4 id="解决-wps-提示字体缺失问题"><a href="#解决-wps-提示字体缺失问题" class="headerlink" title="解决 wps 提示字体缺失问题"></a>解决 wps 提示字体缺失问题</h4><p>使用已下载的 deb 包<code>symbol-fonts_1.2_all.deb</code>安装。</p>
+<h3 id="安装-npm"><a href="#安装-npm" class="headerlink" title="安装 npm"></a>安装 npm</h3><p><code>$ sudo apt-fast install npm</code></p>
+<h4 id="淘宝-npm"><a href="#淘宝-npm" class="headerlink" title="淘宝 npm"></a>淘宝 npm</h4><p>国内使用 npm 太慢的话，可以使用淘宝 npm。<br>淘宝 npm 地址： <a href="http://npm.taobao.org/" target="_blank" rel="noopener">http://npm.taobao.org/</a></p>
+<h5 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h5><p><code>$ npm --registry https://registry.npm.taobao.org install express</code></p>
+<h5 id="通过-cnpm-使用"><a href="#通过-cnpm-使用" class="headerlink" title="通过 cnpm 使用"></a>通过 cnpm 使用</h5><h6 id="配置镜像"><a href="#配置镜像" class="headerlink" title="配置镜像"></a>配置镜像</h6><p><code>$ npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
+<h6 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h6><p><code>$ cnpm install express</code></p>
+<h2 id="更新升级系统"><a href="#更新升级系统" class="headerlink" title="更新升级系统"></a>更新升级系统</h2><p><code>$ sudo apt update</code> </p>
+<p><code>$ sudo apt-fast upgrade -y</code></p>
+<h2 id="解决关机重启时间过长问题"><a href="#解决关机重启时间过长问题" class="headerlink" title="解决关机重启时间过长问题"></a>解决关机重启时间过长问题</h2><p>LinuxMint/Ubuntu 关机重启等待 90 秒问题的解决办法：</p>
+<ol>
+<li>安装 watchdog</li>
+</ol>
+<p><code>$ sudo apt-fast install watchdog</code></p>
+<ol start="2">
+<li>开启 watchdog 服务</li>
+</ol>
+<p><code>$ sudo systemctl enable watchdog.service</code></p>
+<ol start="3">
+<li>马上启用 watchdog 服务</li>
+</ol>
+<p><code>$ sudo systemctl start watchdog.service</code></p>
+<p>只需上述三步，关机等待 90 秒就消失了。</p>
+<h2 id="双系统时间同步"><a href="#双系统时间同步" class="headerlink" title="双系统时间同步"></a>双系统时间同步</h2><p>装了 windows10 和 linux mint 19 双系统，仍然出现了喜闻乐见的老问题，装完后，在 windows 下时区不对。</p>
+<ul>
+<li>方法一：</li>
+</ul>
+<p><code>$ sudo xed /etc/default/rcS</code></p>
+<p>更改 utc=yes 改成 utc=no，如若没有此行，直接添加即可</p>
+<ul>
+<li>方法二：</li>
+</ul>
+<p><code>$ sudo apt-fast install ntpdate</code></p>
+<p><code>$ sudo ntpdate time.windows.com</code></p>
+<p>然后将时间更新到硬件上：</p>
+<p><code>$ sudo hwclock --localtime --systohc</code></p>
+<p>重新进入 windows10，发现时间恢复正常了！</p>
+<h2 id="清洁系统"><a href="#清洁系统" class="headerlink" title="清洁系统"></a>清洁系统</h2><p>删除未完全安装的软件包：</p>
+<p><code>$ sudo apt autoclean</code></p>
+<p>删除 apt-cache：</p>
+<p><code>$ sudo apt clean</code></p>
+<p>删除不需要的软件依赖项：</p>
+<p><code>$ sudo apt autoremove</code></p>
+<h2 id="设置开始菜单（whisker-菜单）属性"><a href="#设置开始菜单（whisker-菜单）属性" class="headerlink" title="设置开始菜单（whisker 菜单）属性"></a>设置开始菜单（whisker 菜单）属性</h2><p>右键单击开始菜单》属性》行为》菜单》将菜单下的复选框全选上</p>
+<p><img src="https://i.imgur.com/y3Z4ygL.png" alt=""></p>
+<p>效果如下：</p>
+<p><img src="https://i.imgur.com/yuW1YGf.png" alt=""></p>
+<h2 id="将打开的窗口设置为扁平按钮"><a href="#将打开的窗口设置为扁平按钮" class="headerlink" title="将打开的窗口设置为扁平按钮"></a>将打开的窗口设置为扁平按钮</h2><p>右键单击面板》面板》面板首选项》项目》窗口管理》编辑当前选中的项目》外观》使用扁平按钮<br>设置面板时间显示</p>
+<p><img src="https://i.imgur.com/cY5A9tG.png" alt=""></p>
+<p>右键单击面板》面板》面板选项》项目》时钟》编辑当前选中的项目》时钟选项》格式》自定义格式》将格式设置为：%Y 年 %m 月 %d 日 %T</p>
+<p><img src="https://i.imgur.com/7J3TrKs.png" alt=""></p>
+<h2 id="使用-adb-连接-android-手机"><a href="#使用-adb-连接-android-手机" class="headerlink" title="使用 adb 连接 android 手机"></a>使用 adb 连接 android 手机</h2><h3 id="安装-adb"><a href="#安装-adb" class="headerlink" title="安装 adb"></a>安装 adb</h3><p><code>$ sudo apt-fast install adb</code></p>
+<ul>
+<li><p>新建文件 <code>cat /etc/udev/rules.d/51-android.rules</code>，添加如下内容：</p>
+<p>SUBSYSTEM==”usb”, ENV{DEVTYPE}==”usb_device”, MODE=”0666”</p>
+</li>
+<li><p>重启 udev</p>
+</li>
+</ul>
+<p><code>$ sudo /etc/init.d/udev restart</code></p>
+<ul>
+<li>将手机用数据线连接电脑，使用终端操作手机（需在手机上开启USB调试）</li>
+</ul>
+<p><code>$ adb shell #shell</code></p>
+<p><img src="https://i.imgur.com/GZ8iAAW.png" alt=""></p>
+<h2 id="支持兼容-32bit-程序"><a href="#支持兼容-32bit-程序" class="headerlink" title="支持兼容 32bit 程序"></a>支持兼容 32bit 程序</h2><p>要运行 32bit 的程序，需要安装如下库：</p>
+<p><code>$ sudo dpkg –add-architecture i386</code></p>
+<p><code>$ sudo apt-fast install libc6:i386 lib32ncurses5 lib32stdc++6 ia32-libs lib32z1</code></p>
+<h2 id="开机挂载-windows-格式的硬盘"><a href="#开机挂载-windows-格式的硬盘" class="headerlink" title="开机挂载 windows 格式的硬盘"></a>开机挂载 windows 格式的硬盘</h2><p><em>注意：该步骤会导致开机变慢</em></p>
+<p>linux mint 系统默认不会开机挂载其他分区，为了方便使用其他分区，需要设置开机挂载其他分区。<br>开始菜单》附件》硬盘》选择硬盘》选择分区》其他分区选项》编辑挂载选项》设置挂载选项和挂载点。重启系统后会自动挂载了。</p>
+<p><img src="https://i.imgur.com/nIf3zjV.png" alt=""></p>
+
+      
+    </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="/Linux/manjaro-xfce-18-踩坑记录.html" rel="bookmark">manjaro-xfce-18-踩坑记录</a></div>
+      
+    </li>
+  
+  </ul>
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>文章不错哟，快快打赏吧！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="elinuxoby 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="elinuxoby 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>elinuxoby</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://elinuxboy.github.io/Linux/Linux-mint-xfce-19-踩坑记录.html" title="Linux-mint-xfce-19-踩坑记录">https://elinuxboy.github.io/Linux/Linux-mint-xfce-19-踩坑记录.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+            <a href="/tags/mint/" rel="tag"><i class="fa fa-tag"></i> mint</a>
+          
+            <a href="/tags/xfce/" rel="tag"><i class="fa fa-tag"></i> xfce</a>
+          
+            <a href="/tags/踩坑记录/" rel="tag"><i class="fa fa-tag"></i> 踩坑记录</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/DataStructuresAndAlgorithms/单链表学习记录.html" rel="next" title="单链表学习记录">
+                <i class="fa fa-chevron-left"></i> 单链表学习记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Linux/manjaro-xfce-18-踩坑记录.html" rel="prev" title="manjaro-xfce-18-踩坑记录">
+                manjaro-xfce-18-踩坑记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTkzMC8xODQ3Ng=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="elinuxoby">
+            
+              <p class="site-author-name" itemprop="name">elinuxoby</p>
+              <p class="site-description motion-element" itemprop="description">elinuxboy 的个人博客</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/elinuxboy" title="GitHub &rarr; https://github.com/elinuxboy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:elinuxboy001@gmail.com" title="E-Mail &rarr; mailto:elinuxboy001@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/p/1005056887217453" title="Weibo &rarr; https://weibo.com/p/1005056887217453" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/elinuxboy" title="https://www.cnblogs.com/elinuxboy" rel="noopener" target="_blank">博客园</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gitee.com/elinuxboy" title="https://gitee.com/elinuxboy" rel="noopener" target="_blank">Gitee</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建系统快照"><span class="nav-number">1.</span> <span class="nav-text">创建系统快照</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用国内软件源"><span class="nav-number">2.</span> <span class="nav-text">启用国内软件源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置-Redshift-保护眼睛健康"><span class="nav-number">3.</span> <span class="nav-text">设置 Redshift 保护眼睛健康</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置防火墙"><span class="nav-number">4.</span> <span class="nav-text">设置防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载自带软件"><span class="nav-number">5.</span> <span class="nav-text">卸载自带软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载自带音乐播放器-rhythmbox"><span class="nav-number">5.1.</span> <span class="nav-text">卸载自带音乐播放器 rhythmbox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载自带即时通讯工具-hexchat"><span class="nav-number">5.2.</span> <span class="nav-text">卸载自带即时通讯工具 hexchat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载自带-libreoffice"><span class="nav-number">5.3.</span> <span class="nav-text">卸载自带 libreoffice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载自带词典-xfce4-dict"><span class="nav-number">5.4.</span> <span class="nav-text">卸载自带词典 xfce4-dict</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装常用软件"><span class="nav-number">6.</span> <span class="nav-text">安装常用软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-apt-fast"><span class="nav-number">6.1.</span> <span class="nav-text">安装 apt-fast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决汉化不完全的问题"><span class="nav-number">6.2.</span> <span class="nav-text">解决汉化不完全的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装中文输入法"><span class="nav-number">6.3.</span> <span class="nav-text">安装中文输入法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装谷歌拼音输入法"><span class="nav-number">6.3.1.</span> <span class="nav-text">安装谷歌拼音输入法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装中文字体"><span class="nav-number">6.4.</span> <span class="nav-text">安装中文字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装谷歌浏览器-chrome"><span class="nav-number">6.5.</span> <span class="nav-text">安装谷歌浏览器 chrome</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加谷歌访问助手扩展插件"><span class="nav-number">6.5.1.</span> <span class="nav-text">添加谷歌访问助手扩展插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装多媒体插件"><span class="nav-number">6.6.</span> <span class="nav-text">安装多媒体插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装网易云音乐播放器"><span class="nav-number">6.7.</span> <span class="nav-text">安装网易云音乐播放器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装在线视频播放"><span class="nav-number">6.8.</span> <span class="nav-text">安装在线视频播放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装截图软件"><span class="nav-number">6.9.</span> <span class="nav-text">安装截图软件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#shutter"><span class="nav-number">6.9.1.</span> <span class="nav-text">shutter</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#修复shutter不能使用编辑截图的问题"><span class="nav-number">6.9.1.1.</span> <span class="nav-text">修复shutter不能使用编辑截图的问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hotshots"><span class="nav-number">6.9.2.</span> <span class="nav-text">hotshots</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装录屏软件"><span class="nav-number">6.10.</span> <span class="nav-text">安装录屏软件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vokscreen"><span class="nav-number">6.10.1.</span> <span class="nav-text">vokscreen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#peek"><span class="nav-number">6.10.2.</span> <span class="nav-text">peek</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装下载工具-uget"><span class="nav-number">6.11.</span> <span class="nav-text">安装下载工具 uget</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-Chrome-调用-uGet-下载"><span class="nav-number">6.11.1.</span> <span class="nav-text">配置 Chrome 调用 uGet 下载</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-uget-integrator"><span class="nav-number">6.11.1.1.</span> <span class="nav-text">安装 uget-integrator</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#chrome-安装-uget-扩展"><span class="nav-number">6.11.1.2.</span> <span class="nav-text">chrome 安装 uget 扩展</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装翻译词典-goldendict"><span class="nav-number">6.12.</span> <span class="nav-text">安装翻译词典 goldendict</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装深度终端"><span class="nav-number">6.13.</span> <span class="nav-text">安装深度终端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-gnome-系统监视器"><span class="nav-number">6.14.</span> <span class="nav-text">安装 gnome 系统监视器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装即时通讯工具"><span class="nav-number">6.15.</span> <span class="nav-text">安装即时通讯工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-QQ"><span class="nav-number">6.15.1.</span> <span class="nav-text">安装 QQ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-TIM"><span class="nav-number">6.15.2.</span> <span class="nav-text">安装 TIM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装微信"><span class="nav-number">6.15.3.</span> <span class="nav-text">安装微信</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装远程桌面管理软件"><span class="nav-number">6.16.</span> <span class="nav-text">安装远程桌面管理软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装超酷的-cat-替代命令-bat"><span class="nav-number">6.17.</span> <span class="nav-text">安装超酷的 cat 替代命令 bat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装编辑软件Sublime"><span class="nav-number">6.18.</span> <span class="nav-text">安装编辑软件Sublime</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#中文输入修复"><span class="nav-number">6.18.1.</span> <span class="nav-text">中文输入修复</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-git-图形界面"><span class="nav-number">6.19.</span> <span class="nav-text">安装 git 图形界面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GitKraken"><span class="nav-number">6.19.1.</span> <span class="nav-text">GitKraken</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#smartgit"><span class="nav-number">6.19.2.</span> <span class="nav-text">smartgit</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SmartGit-过期破解"><span class="nav-number">6.19.2.1.</span> <span class="nav-text">SmartGit 过期破解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装虚拟机-vmware-workstations"><span class="nav-number">6.20.</span> <span class="nav-text">安装虚拟机 vmware workstations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装办公软件-wps"><span class="nav-number">6.21.</span> <span class="nav-text">安装办公软件 wps</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解决-wps-提示字体缺失问题"><span class="nav-number">6.21.1.</span> <span class="nav-text">解决 wps 提示字体缺失问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-npm"><span class="nav-number">6.22.</span> <span class="nav-text">安装 npm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#淘宝-npm"><span class="nav-number">6.22.1.</span> <span class="nav-text">淘宝 npm</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#临时使用"><span class="nav-number">6.22.1.1.</span> <span class="nav-text">临时使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过-cnpm-使用"><span class="nav-number">6.22.1.2.</span> <span class="nav-text">通过 cnpm 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#配置镜像"><span class="nav-number">6.22.1.2.1.</span> <span class="nav-text">配置镜像</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用"><span class="nav-number">6.22.1.2.2.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新升级系统"><span class="nav-number">7.</span> <span class="nav-text">更新升级系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决关机重启时间过长问题"><span class="nav-number">8.</span> <span class="nav-text">解决关机重启时间过长问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双系统时间同步"><span class="nav-number">9.</span> <span class="nav-text">双系统时间同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清洁系统"><span class="nav-number">10.</span> <span class="nav-text">清洁系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置开始菜单（whisker-菜单）属性"><span class="nav-number">11.</span> <span class="nav-text">设置开始菜单（whisker 菜单）属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将打开的窗口设置为扁平按钮"><span class="nav-number">12.</span> <span class="nav-text">将打开的窗口设置为扁平按钮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-adb-连接-android-手机"><span class="nav-number">13.</span> <span class="nav-text">使用 adb 连接 android 手机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-adb"><span class="nav-number">13.1.</span> <span class="nav-text">安装 adb</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持兼容-32bit-程序"><span class="nav-number">14.</span> <span class="nav-text">支持兼容 32bit 程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开机挂载-windows-格式的硬盘"><span class="nav-number">15.</span> <span class="nav-text">开机挂载 windows 格式的硬盘</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">elinuxboy 版权所有</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">65k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">59 分钟</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.6.0</div>
+
+
+
+
+
+<span class="post-meta-divider"> | </span>
+
+<span><i class="fa fa-plug"></i></span>
+<span id="showDays"></span>
+<script>
+  var seconds = 1000;
+  var minutes = seconds * 60;
+  var hours = minutes * 60;
+  var days = hours * 24;
+  var years = days * 365;
+  var birthDay = Date.UTC(2018,12,31,23,59,59); // 这里设置建站时间
+  setInterval(function() {
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = now - birthDay;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+      document.getElementById('showDays').innerHTML="本站已运行 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }, 1000);
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: 'Linux/Linux-mint-xfce-19-踩坑记录.html'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+
+
+  <!-- 点击出现桃心效果 -->
+  <script type="text/javascript" src="/js/src/clickedLove.js"></script>
+
+  <!-- Aplayer -->
+  <link rel="stylesheet" href="/aplayer/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/aplayer/APlayer.min.js"></script>
+  <script type="text/javascript" src="/aplayer/music.js"></script>
+
+</body>
+</html>
