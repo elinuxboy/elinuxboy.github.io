@@ -22,7 +22,7 @@ timezone: Asia/Shanghai
 url: https://elinuxboy.github.io
 root: /
 #permalink: :year/:month/:day/:title/
-permalink: :title/
+permalink: :title.html
 permalink_defaults: https://elinuxboy.github.io
 
 # Directory
