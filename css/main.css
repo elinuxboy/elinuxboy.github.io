@@ -2139,7 +2139,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7d6b3b;
+  background: #aa2d44;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3207,6 +3207,10 @@ hr {
 }
 body {
   background: #e0fccf;
+}
+.header,
+.footer {
+  background: #d1fab8;
 }
 .sidebar {
   background: url("/images/sildeBarBg.jpg") no-repeat !important;
