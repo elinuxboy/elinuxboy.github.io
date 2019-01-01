@@ -22,3 +22,4 @@ source/lib/ua-parser-js/*
 !source/lib/velocity/
 
 !source/lib/needsharebutton/*
+!source/lib/pangu/*
