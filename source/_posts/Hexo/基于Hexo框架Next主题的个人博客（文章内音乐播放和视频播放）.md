@@ -11,6 +11,18 @@ categories:
 - Blog
 - Hexo
 - Next
+keywords:
+- Blog
+- Hexo
+- Next
+- 文章内音乐播放
+- 文章内视频播放
+description:
+- Blog
+- Hexo
+- Next
+- 文章内音乐播放
+- 文章内视频播放
 ---
 
 效果预览：

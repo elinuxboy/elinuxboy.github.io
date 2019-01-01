@@ -10,6 +10,16 @@ categories:
   - Blog
   - Hexo
   - Next
+keywords:
+- Blog
+- Hexo
+- Next
+- 备忘录
+description:
+- Blog
+- Hexo
+- Next
+- 备忘录
 ---
 
 

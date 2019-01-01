@@ -9,6 +9,16 @@ categories:
 - Blog
 - Hexo
 - Next
+keywords:
+- Blog
+- Hexo
+- Next
+- example
+description:
+- Blog
+- Hexo
+- Next
+- example
 ---
 
 {% fold 点击显示/隐藏内容 %}
