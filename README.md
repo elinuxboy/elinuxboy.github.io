@@ -74,8 +74,6 @@
 
 `hexo init hexoBlog`
 
-{% fold 点击显示/隐藏内容 %}
-
 ```sh
 $ hexo init hexoBlog
 INFO  Cloning hexo-starter to ~/workspace/blog/hexo/hexoBlog
@@ -108,13 +106,9 @@ found 0 vulnerabilities
 INFO  Start blogging with Hexo!
 ```
 
-{% endfold %}
-
 进入 **hexo 根**目录。这一目录中应当有 `node_modules`、`source`、`themes` 等若干子目录和文件：
 
 `cd hexoBlog`
-
-{% fold 点击显示/隐藏内容 %}
 
 ```sh
 .
@@ -133,8 +127,6 @@ INFO  Start blogging with Hexo!
     └── landscape/ # landscape 主题文件夹
 ```
 
-{% endfold %}
-
 ### 本地版本控制仓库
 
 #### 初始化
@@ -147,8 +139,6 @@ $ git init
 查看`git`本地版本控制仓库状态：
 
 `git status `
-
-{% fold 点击显示/隐藏内容 %}
 
 ```sh
 $ git status      
@@ -169,8 +159,6 @@ $ git status
 
 提交为空，但是存在尚未跟踪的文件（使用 "git add" 建立跟踪）
 ```
-
-{% endfold %}
 
 #### git ignore 设置
 
@@ -204,8 +192,6 @@ $ git checkout -b source
 
 添加提交日志：
 
-{% fold 点击显示/隐藏内容 %}
-
 ```
 初始提交
 
@@ -215,8 +201,6 @@ $ git checkout -b source
 
 增加新分支 source 用于管理 Hexo 博客项目源码
 ```
-
-{% endfold %}
 
 ### 远程版本控制仓库
 
@@ -314,8 +298,6 @@ theme: next-v6.6.0 # 启用 Next 主题
 
 为了将博客静态站点部署到不同的代码托管平台，需要按照如下方式在配置文件内（站点配置文件）设置部署信息：
 
-{% fold 点击显示/隐藏内容 %}
-
 ```yaml
 # Deployment 远程部署设置
 ## Docs: https://hexo.io/docs/deployment.html
@@ -333,9 +315,6 @@ deploy:
   repo: git@gitee.com:elinuxboy/elinuxboy.git
   branch: master # 部署到主分支
 ```
-
-{% fold 点击显示/隐藏内容 %}
-{% endfold %}
 
 ## 安装部署插件
 
