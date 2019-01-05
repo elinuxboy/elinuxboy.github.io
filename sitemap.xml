@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://elinuxboy.github.io/Linux/Linux-mint-xfce-19-%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95.html</loc>
+    
+    <lastmod>2019-01-05T00:16:36.673Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://elinuxboy.github.io/hello-world.html</loc>
     
     <lastmod>2019-01-05T00:04:39.313Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://elinuxboy.github.io/Linux/manjaro-xfce-18-%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95.html</loc>
     
     <lastmod>2019-01-05T00:04:31.836Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://elinuxboy.github.io/Linux/Linux-mint-xfce-19-%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95.html</loc>
-    
-    <lastmod>2019-01-05T00:04:24.166Z</lastmod>
     
   </url>
   
