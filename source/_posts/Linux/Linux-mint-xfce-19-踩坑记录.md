@@ -14,11 +14,6 @@ keywords:
 - mint
 - xfce
 - 踩坑记录
-description:
-- Linux
-- mint
-- xfce
-- 踩坑记录
 ---
 
 ## 创建系统快照

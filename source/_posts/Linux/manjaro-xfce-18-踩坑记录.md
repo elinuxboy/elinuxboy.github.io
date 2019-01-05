@@ -14,11 +14,6 @@ keywords:
 - Linux
 - xfce
 - 踩坑记录
-description:
-- manjaro
-- Linux
-- xfce
-- 踩坑记录
 ---
 
 ## 简介
